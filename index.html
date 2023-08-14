@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="design.css">
+  <title>Paragraphs with Titles</title>
+</head>
+<body>
+  <div class="container">
+    <div class="section">
+      <h2 class="section-title">Lab Report</h2>
+      <pre class="section-paragraph-p" >
+	Name: Sultanus Salehin
+	ID: 221-15-5357
+	Section: 61_K
+	
+	Course code: CSE 232
+	Course title: Algorithms Lab
+	</pre>
+    </div>
+
+
+    <div class="section">
+		<h1 class="section-title">Binary Search</h1>
+      <h2 class="section-title-p">Algorithm and Description</h2>
+      <pre class="section-paragraph"> 
+		<h4>Algorithm:</h4>
+
+Initialize:
+
+declare variables beg, end, mid, and val
+set beg to 0
+
+set end to the length of the array minus 1
+
+set val to the value to be searched for
+
+Loop:
+
+if end >= beg:
+calculate the midpoint of the array, mid
+if the value at mid is equal to val:
+return mid + 1 (the index of the value in the array)
+
+else if the value at mid is less than val:
+set beg to mid + 1
+
+else:
+set end to mid - 1
+
+else:
+return -1 (the value is not in the array)
+
+<h4>Description:</h4>
+The array is not sorted in any particular order before the binary search algorithm is called. The binary 
+search algorithm first checks the middle element of the array to see if it is equal to the value being 
+searched for. If it is, the algorithm returns the index of the value in the array. Otherwise, the algorithm 
+recursively calls itself on the half of the array that the value is more likely to be in. This process 
+continues until the value is found or the entire array has been searched and the value is not found.
+
+The binary search algorithm is a very efficient way to search for a value in a sorted array. The worst-case
+time complexity of the algorithm is O(log n), where n is the number of elements in the array. This means
+that the time it takes to search for the value grows logarithmically with the size of the array.
+
+<h4>Code:</h4>
+
+#include <stdio.h>  
+	int binarySearch(int a[], int beg, int end, int val)    
+	{    
+		int mid;    
+		if(end >= beg)     
+		{        mid = (beg + end)/2;    
+			if(a[mid] == val)    
+			{                 
+				return mid+1;    
+			}    
+	
+			else if(a[mid] < val)     
+			{  
+				return binarySearch(a, mid+1, end, val);    
+			}    
+	
+			else     
+			{  
+				return binarySearch(a, beg, mid-1, val);    
+			}          
+		}    
+		return -1;     
+	}   
+	int main() {  
+	  int a[] = {11, 14, 25, 30, 40, 41, 52, 57, 70};  
+	  int val = 40;
+	  int n = sizeof(a) / sizeof(a[0]);  
+	  int res = binarySearch(a, 0, n-1, val);  
+	  printf("The elements of the array are - ");  
+	  for (int i = 0; i < n; i++)  
+		printf("%d ", a[i]);   
+	  printf("\nElement to be searched is - %d", val);  
+	  if (res == -1)  
+	  printf("\nElement is not present in the array");  
+	  else  
+	  printf("\nElement is present at %d position of array", res);  
+	  return 0;  
+	}  
+
+		
+	</pre>
+    </div>
+   
+
+	<div class="section">
+		<h1 class="section-title">Linear Search</h1>
+      <h2 class="section-title-p">Algorithm and Description</h2>
+      <pre class="section-paragraph"> 
+		<h4>Algorithm:</h4>
+
+		Initialize a variable i to 0. 
+
+		While i is less than the size of the array:
+
+		If the array element at index i is equal to the value being searched for:
+		Return the index of the value in the array.
+
+		Increment i by 1.
+		Return -1 (the value is not in the array).
+
+<h4>Description:</h4>
+The linear search algorithm is a simple way to search for a value in an array. The algorithm starts at the
+beginning of the array and compares the value being searched for to the first element in the array. If 
+the values are equal, the algorithm returns the index of the value in the array. Otherwise, the algorithm 
+moves on to the next element in the array and repeats the process. This continues until the
+value is found or the end of the array is reached. If the value is not found at the end of the array, the
+algorithm returns -1.
+
+The linear search algorithm is not very efficient for large arrays, because it has to search through every 
+element in the array to find the value. The runtime complexity of the linear search algorithm is O(n), 
+because the algorithm has to iterate through all n elements in the array. In the worst case, 
+the value being searched for is not in the array.
+
+
+<h4>Code:</h4>
+
+#include <stdio.h> 
+	int LINEAR_SEARCH(int inp_arr[], int size, int val) 
+	{      
+		for (int i = 0; i < size; i++) 
+			if (inp_arr[i] == val) 
+				return i; 
+		return -1; 
+	} 
+	int main(void) 
+	{ 
+		int arr[] = { 10, 20, 30, 40, 50, 100, 0 }; 
+		int key = 100; 
+		int size = 10; 
+		int res = LINEAR_SEARCH(arr, size, key); 
+		if (res == -1)
+		printf("ELEMENT NOT FOUND!!");
+		else
+		printf("Item is present at index %d", res);    
+		return 0; 
+	}
+
+		
+	</pre>
+    </div>
+
+
+
+	<div class="section">
+		<h1 class="section-title">Insertion Sort</h1>
+      <h2 class="section-title-p">Algorithm and Description</h2>
+      <pre class="section-paragraph"> 
+		<h4>Algorithm:</h4>
+
+def insertion_sort(array):
+  for i in range(1, len(array)):
+    key = array[i]
+    j = i - 1
+    while j >= 0 and array[j] > key:
+      array[j + 1] = array[j]
+      j -= 1
+    array[j + 1] = key
+
+def print_array(array):
+  for i in range(len(array)):
+    print(array[i], end=" ")
+  print()
+
+if __name__ == "__main__":
+  array = [12, 54, 65, 7, 23, 9]
+  print("Unsorted array:")
+  print_array(array)
+  insertion_sort(array)
+  print("Sorted array:")
+  print_array(array)
+
+<h4>Description:</h4>
+The insertion sort algorithm sorts an array by repeatedly inserting elements into their correct position in 
+the sorted part of the array. The algorithm starts at the second element in the array and compares it to the 
+first element. If the second element is smaller than the first element, the algorithm swaps
+the two elements. 
+The algorithm then repeats this process with the third element in the array and the first two elements. 
+This process continues until the last element in the array has been sorted.
+
+The insertion sort algorithm is a simple algorithm to implement and is relatively efficient for small arrays.
+The time complexity of the insertion sort algorithm is O(n^2), where n is the size of the array. This means 
+that the algorithm takes quadratic time to sort the array in the worst case. However, the insertion sort 
+algorithm is typically much faster than the selection sort algorithm for small arrays.
+
+Here is a shorter summary of the time complexity of the insertion sort algorithm:
+
+The time complexity of the insertion sort algorithm is O(n^2), where n is the size of the array.
+This means that
+the algorithm takes quadratic time to sort the array in the worst case.
+However, the
+insertion sort algorithm is typically much faster than the selection sort algorithm for small arrays.
+
+Steps:
+   
+   12,| 54, 65, 7, 23, 9 --> i=1, key=54, j=0
+   12,| 54, 65, 07, 23, 9 --> 1st pass done (i=1)!
+   12, 54,| 65, 7, 23, 9 --> i=2, key=65, j=1
+   12, 54,| 65, 7, 23, 9 --> 2nd pass done (i=2)!
+   12, 54, 65,| 7, 23, 9 --> i=3, key=7, j=2
+   12, 54, 65,| 65, 23, 9 --> i=3, key=7, j=1
+   12, 54, 54,| 65, 23, 9 --> i=3, key=7, j=0
+   12, 12, 54,| 65, 23, 9 --> i=3, key=7, j=-1
+   7, 12, 54,| 65, 23, 9 --> i=3, key=7, j=-1--> 3rd pass done (i=3)
+Fast forwarding and 4th and 5th pass will give:
+   7, 12, 54, 65,| 23, 9 --> i=4, key=23, j=3
+   7, 12, 23, 54,| 65, 9 --> After the 4th pass
+   7, 12, 23, 54, 65,| 9 --> i=5, key=9, j=4
+   7, 9, 12, 23, 54, 65| --> After the 5th pass 
+
+
+
+<h4>Code:</h4>
+
+#include<stdio.h>
+
+	void printArray(int* A, int n){
+		for (int i = 0; i < n; i++)
+		{
+			printf("%d ", A[i]);
+		}
+		printf("\n");
+	}
+	
+	void insertionSort(int *A, int n){
+		int key, j;
+		printf("Running Insertion sort...\n");
+		for (int i = 1; i <= n-1; i++)
+		{
+			key = A[i];
+			j = i-1;
+			
+			while(j>=0 && A[j] > key){
+				A[j+1] = A[j];
+				j--;
+			}
+			A[j+1] = key;
+		}
+	}
+	
+	int main(){
+		
+		int A[] = {12, 54, 65, 7, 23, 9};
+		int n = 6;
+		printArray(A, n);
+		insertionSort(A, n);
+		printArray(A, n);
+		return 0;
+	}
+		
+	</pre>
+    </div>
+
+
+
+
+
+	<div class="section">
+		<h1 class="section-title">Selection Sort</h1>
+      <h2 class="section-title-p">Algorithm and Description</h2>
+      <pre class="section-paragraph"> 
+		<h4>Algorithm:</h4>
+
+		Declare variables indexOfMin and temp.
+
+		Print a message that the selection sort algorithm is running.
+
+		For each element in the array, from 0 to the size of the array minus 2:
+
+		Set indexOfMin to the current element.
+
+		For each element in the array, from the current element + 1 to the size of the array:
+		If the value at the current element is greater than the value at the indexOfMin element:
+		Set indexOfMin to the current element.
+		Swap the values at the current element and the indexOfMin element.
+
+		Print the sorted array.
+
+<h4>Description:</h4>
+The selection sort algorithm sorts an array by repeatedly finding the minimum element in the unsorted part 
+of the array and swapping it with the first element in the unsorted part. The algorithm starts at the 
+beginning of the array and compares the first element to each of the remaining elements in the array. The 
+element with the smallest value is swapped with the first element. The algorithm then repeats this process
+with the remaining elements in the array. This process continues until the entire array is sorted.
+
+The selection sort algorithm is a simple algorithm to implement, but it is not very efficient for large 
+arrays. The time complexity of the selection sort algorithm is O(n^2), where n is the size of the array. 
+This means that the algorithm takes quadratic time to sort the array.
+
+Time Complexity:
+
+The time complexity of the selection sort algorithm is O(n^2), where n is the size of the array. This is 
+because the algorithm has to iterate through the entire array n times, and for each iteration, it has to 
+iterate through the remaining n - 1 elements to find the minimum element. The total number of comparisons is 
+therefore n * (n - 1), which is O(n^2).
+
+
+<h4>Code:</h4>
+
+#include<stdio.h>
+
+	void printArray(int* A, int n){
+		for (int i = 0; i < n; i++)
+		{
+			printf("%d ", A[i]);
+		}
+		printf("\n");
+	}
+	
+	void selectionSort(int *A, int n){
+		int indexOfMin, temp;
+		printf("Running Selection sort...\n");
+		for (int i = 0; i < n-1; i++)
+		{
+			indexOfMin = i;
+			for (int j = i+1; j < n; j++)
+			{
+				if(A[j] < A[indexOfMin]){
+					indexOfMin = j;
+				}
+			}
+			
+			temp = A[i];
+			A[i] = A[indexOfMin];
+			A[indexOfMin] = temp;
+		}
+	}
+	
+	int main(){
+	
+		int A[] = {3, 5, 2, 13, 12};
+		int n = 5;
+		printArray(A, n);
+		selectionSort(A, n);
+		printArray(A, n);
+	
+		return 0;
+	}
+	
+		
+	</pre>
+    </div>
+
+
+
+</body>
+</html>

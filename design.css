@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #192841; /* Dark blue background */
+  color: #fff; /* White text color */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  background-color: #273c55; /* Slightly lighter blue for sections */
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  height: auto;
+}
+
+.section-title {
+  color: #f9c62e; /* Yellow title color */
+  margin-top: 0;
+}
+
+.section-paragraph {
+  color: #ccc; /* Light gray text color for paragraphs */
+  height: auto;
+}
+.section-paragraph-p {
+  color: #ccc; /* Light gray text color for paragraphs */
+  width: 100px;
+  height: auto;
+}
+
+h2 {
+  color: #5c52e7; /* Violet heading color */
+}
+h4 {
+  color: #f09e9e; /* Yellow heading color */
+}
